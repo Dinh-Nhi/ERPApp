@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { StyleSheet ,Alert } from 'react-native'
-import Background from '../components/Background'
-import Logo from '../components/Logo'
-import Button from '../components/Button'
-import TextInput from '../components/TextInput'
-import { theme } from '../core/theme'
-import { config } from '../helpers/Config'
+import Background from '../../components/Background'
+import Logo from '../../components/Logo'
+import Button from '../../components/Button'
+import TextInput from '../../components/TextInput'
+import { theme } from '../../core/theme'
+import { config } from '../../helpers/Config'
 import axios from 'axios';
 import { Snackbar } from 'react-native-paper';
-import { UserInfor } from '../helpers/UserInfor'
-export default function LoginScreen({ navigation }) {
+import { UserInfor } from '../../helpers/UserInfor'
+export default function Login({ navigation }) {
   const [user, setUser] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
   const [errorMessage, setErrorMessage] = useState('');

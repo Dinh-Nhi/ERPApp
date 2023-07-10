@@ -3,10 +3,10 @@ import { Provider } from 'react-native-paper'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { theme } from './src/core/theme'
-import {
-  LoginScreen,
-  Main,
-} from './src/screens'
+import Main from './src/screens/Main/Main'
+import Login from './src/screens/Login/Login'
+
+
 
 const Stack = createStackNavigator()
 
@@ -15,12 +15,12 @@ export default function App() {
     <Provider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="LoginScreen"
+          initialRouteName="Login"
           screenOptions={{
             headerShown: false,
           }}
         >
-          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Main" component={Main} />
          
         </Stack.Navigator>

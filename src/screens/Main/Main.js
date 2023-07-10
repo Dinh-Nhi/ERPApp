@@ -1,9 +1,9 @@
 import React from 'react'
-import Background from '../components/Background'
-import Logo from '../components/Logo'
-import Button from '../components/Button'
+import Background from '../../components/Background'
+import Logo from '../../components/Logo'
+import Button from '../../components/Button'
 
-export default function Dashboard({ navigation }) {
+export default function Main({ navigation }) {
   return (
     <Background>
       <Logo />
@@ -13,7 +13,7 @@ export default function Dashboard({ navigation }) {
         onPress={() =>
           navigation.reset({
             index: 0,
-            routes: [{ name: 'LoginScreen' }],
+            routes: [{ name: 'Login' }],
           })
         }
       >
