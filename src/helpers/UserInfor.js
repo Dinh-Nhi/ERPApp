@@ -1,0 +1,35 @@
+export const UserInfor = {
+    _id: '',
+    activeFlag: '',
+    admin: '',
+    agentId: '',
+    agentInfo: {
+        _id: '',
+        accountBanks: '',
+        activeFlag: '',
+        agent: '',
+        agentAddress: '',
+        agentMobile: '',
+        agentName: '',
+        agentRepresentative: '',
+        agentTaxCode: '',
+        limitNumberUsers: '',
+        prefixUserID: '',
+        socialInsuranceAuthorityCode: '',
+        socialInsuranceCode: '',
+        supportInfo: {
+            Email: '',
+            Phone: ''
+          },
+        taxAuthorityCode: '',
+        usingTask: '',
+      },
+    email: '',
+    fullName: '',
+    fullRights: '',
+    phone: '',
+    root: '',
+    statusCode: '',
+    token: '',
+    userName:''
+}
