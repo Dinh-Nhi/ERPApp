@@ -5,6 +5,7 @@ export const jsonRoot = {
             Type: '',
             UserId: '',
             UserName: '',
+            FullRights:'',
             UserFullName: '',
             IsRoot: '',
             IPAddress: '',

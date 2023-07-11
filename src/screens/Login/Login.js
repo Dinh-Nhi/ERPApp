@@ -9,46 +9,11 @@ import { config } from '../../helpers/Config'
 import axios from 'axios';
 import { Snackbar } from 'react-native-paper';
 import { UserInfor } from '../../helpers/UserInfor'
+import { jsonRoot } from '../../helpers/JsonRoot'
 export default function Login({ navigation }) {
   const [user, setUser] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
   const [errorMessage, setErrorMessage] = useState('');
-
-const tokenAuth = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJVc2VyTmFtZSI6IkFBQV9TVVBFUkFETUlOIiwiRnVsbE5hbWUiOiJTdXBlciBBZG1pbmlzdHJhdG9yIiwiQWdlbnRJZCI6IjVlN2ExY2FhYTA4YTQ5ZmY0ZDAyOWJiZCIsIl9pZCI6IjVlN2ExZGMyYTA4YTQ5ZmY0ZDAyOWJiZSIsImtleSI6IjBBa0ExNGlUNW04blhQU0FpQlBySVRRcVBLczhVbSIsInN1YiI6IjVlN2ExZGMyYTA4YTQ5ZmY0ZDAyOWJiZSIsImlhdCI6MTY4ODcwMTg1NywiaXNzIjoic2VjdXJlLWFwaSIsImF1ZCI6InNlY3VyZS1hcHAiLCJleHAiOjE2ODg3ODgyNTd9.IauyCja5MSBQdqaZyROdfc7ToDsLioj5P3C8UFP2PjmqzcigsuaWUIOmi8G1yFqq1LHnt5MfOKMZK3Zz_0PUsA';
-const jsonRoot = {
-  msg: {
-    header: {
-      root: true,
-      Type: 'ADMIN',
-      UserId: '5e7a1dc2a08a49ff4d029bbe',
-      UserName: 'AAA_SUPERADMIN',
-      UserFullName: 'Super Administrator',
-      IsRoot: true,
-      IPAddress: '0:0:0:0:0:0:0:1',
-      ActionCode: 'INQUIRY',
-      RqId: 'V52iq9IyGTVG5IRM9Rm53LeFXsjB3l',
-      AgentId: '5e7a1caaa08a49ff4d029bbd'
-    },
-    page: {
-      size: 0,
-      page_no: 0,
-      field_sort: '',
-      type_sort: -1,
-      total_rows: 0
-    }
-  }
-};
-
-
-
-
-const headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
- // 'api-license-key': 'bxuGbD4BHw705aloCHABdFjMRtCz9MnmE10TSCTbWvBHskkaqU',
- // 'Authorization': tokenAuth
-};
-
 
   const handleLogin = () => {
     const userlogin = {
@@ -63,6 +28,13 @@ const headers = {
   //     Password :password.value,
   //     UserInfo: {}
   //   };
+
+
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  };
     axios({
       method: config.param.methodPOST,
       url: config.param.url +'/admin/doLogin',
@@ -93,6 +65,21 @@ const headers = {
       UserInfor.root = response.data.root;
       UserInfor.token = response.data.token;
       UserInfor.userName = response.data.userName;
+   
+      jsonRoot.msg.header.root = response.data.root;
+
+      jsonRoot.msg.header.Type = 'ADMIN';
+
+      jsonRoot.msg.header.UserId = response.data._id;
+      jsonRoot.msg.header.UserName = response.data.fullName;
+      jsonRoot.msg.header.UserFullName = response.data.userName;
+      jsonRoot.msg.header.FullRights = response.data.fullRights;
+      jsonRoot.msg.header.IsRoot = response.data.root;
+      jsonRoot.msg.header.IPAddress = response.data._id;
+      jsonRoot.msg.header.ActionCode = 'INQUIRY';
+      jsonRoot.msg.header.RqId = response.data.userName;
+      jsonRoot.msg.header.AgentId = response.data.agentId;
+
       navigation.reset({
         index: 0,
         routes: [{ name: 'Main' }],

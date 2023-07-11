@@ -1,8 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native'
 import { Avatar, Card } from 'react-native-paper'
-
+import { config } from '../../helpers/Config'
+import { UserInfor } from '../../helpers/UserInfor'
+import { jsonRoot } from '../../helpers/JsonRoot';
+import axios from 'axios';
 export default function CardMainItem() {
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'api-license-key': config.param.apilicensekey,
+    'Authorization':  UserInfor.token
+  };
+  useEffect(() => {
+    axios({
+      method: config.param.methodPOST,
+      url: config.param.url +'/admin/Common/getPackageUseInfo',
+      headers: headers,
+      data: jsonRoot
+    })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        // Handle any errors here
+      });
+  }, []);
+
+
+
+
+
   return (
     <>
       <Card style={styles.cardItem}>
