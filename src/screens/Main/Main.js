@@ -3,6 +3,7 @@ import {
   Dimensions,
   ImageBackground,
   KeyboardAvoidingView,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -19,17 +20,19 @@ export default function Main({ navigation }) {
       resizeMode="repeat"
       style={styles.background}
     >
-      <View
-        style={{
-          marginTop: 0.1 * heightScreen,
-          marginBottom: 0.1 * heightScreen,
-          flex: 1,
-          padding: 20,
-          width: '100%',
-        }}
-      >
-        <CardMainItem />
-      </View>
+      <ScrollView>
+        <View
+          style={{
+            marginTop: 0.1 * heightScreen,
+            marginBottom: 0.1 * heightScreen,
+            flex: 1,
+            padding: 20,
+            width: '100%',
+          }}
+        >
+          <CardMainItem />
+        </View>
+      </ScrollView>
     </ImageBackground>
   )
 }
@@ -44,4 +47,7 @@ const styles = StyleSheet.create({
     padding: 20,
     width: '100%',
   },
+  // scrollView: {
+  //   marginHorizontal: 5,
+  // },
 })
