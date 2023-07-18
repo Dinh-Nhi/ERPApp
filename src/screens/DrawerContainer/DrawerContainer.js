@@ -11,6 +11,7 @@ import { theme } from '../../core/theme'
 import { UserInfor } from '../../helpers/UserInfor'
 import Login from '../Login/Login'
 import Main from '../Main/Main'
+import Task from '../Task/Task'
 import UserProfile from '../UserProfile/UserProfile'
 
 const Drawer = createDrawerNavigator()
@@ -61,6 +62,14 @@ const DrawerContainer = () => {
           drawerIcon: () => <IconButton icon="home" style={{ margin: 0 }} />,
         })}
         component={Main}
+      />
+        <Drawer.Screen
+        name="Task"
+        options={(props) => ({
+          title: 'Công việc',
+          drawerIcon: () => <IconButton icon="home" style={{ margin: 0 }} />,
+        })}
+        component={Task}
       />
       <Drawer.Screen
         name="Login"

@@ -23,7 +23,7 @@ export default function Main({ navigation }) {
       <ScrollView>
         <View
           style={{
-            marginTop: 0.1 * heightScreen,
+            marginTop: 0.01 * heightScreen,
             marginBottom: 0.1 * heightScreen,
             flex: 1,
             padding: 20,
